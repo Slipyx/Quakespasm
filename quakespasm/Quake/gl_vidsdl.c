@@ -108,6 +108,7 @@ qboolean gl_glsl_able = false; //ericw
 GLint gl_max_texture_units = 0; //ericw
 qboolean gl_glsl_gamma_able = false; //ericw
 qboolean gl_glsl_alias_able = false; //ericw
+qboolean gl_glsl_world_able = false; // [slipyx]
 int gl_stencilbits;
 
 PFNGLMULTITEXCOORD2FARBPROC GL_MTexCoord2fFunc = NULL; //johnfitz
@@ -1259,10 +1260,19 @@ static void GL_CheckExtensions (void)
 	else if (gl_glsl_able && gl_vbo_able && gl_max_texture_units >= 3)
 	{
 		gl_glsl_alias_able = true;
+		gl_glsl_world_able = true;
 	}
 	else
 	{
 		Con_Warning ("GLSL alias model rendering not available, using Fitz renderer\n");
+	}
+
+	// GLSL world rendering
+	//
+	if (COM_CheckParm("-noglslworld"))
+	{
+		Con_Warning ("GLSL world rendering disabled at command line\n");
+		gl_glsl_world_able = false;
 	}
 }
 

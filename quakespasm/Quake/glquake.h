@@ -262,6 +262,7 @@ extern QS_PFNGLUNIFORM4FPROC GL_Uniform4fFunc;
 extern	qboolean	gl_glsl_able;
 extern	qboolean	gl_glsl_gamma_able;
 extern	qboolean	gl_glsl_alias_able;
+extern	qboolean	gl_glsl_world_able; // [slipyx]
 // ericw --
 
 //ericw -- NPOT texture support

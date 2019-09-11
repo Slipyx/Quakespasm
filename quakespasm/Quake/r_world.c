@@ -875,7 +875,7 @@ void GLWorld_CreateShaders (void)
 		"	gl_FragColor = result;\n"
 		"}\n";
 	
-	if (!gl_glsl_alias_able)
+	if (!gl_glsl_world_able)
 		return;
 	
 	r_world_program = GL_CreateProgram (vertSource, fragSource, sizeof(bindings)/sizeof(bindings[0]), bindings);
